@@ -557,7 +557,7 @@ p.article-info-text > .postMeta br {
 
 #sideBar {
     margin-top: -15px;
-    width: 280px;
+    width: 320px;
     padding: 0 0 0 5px;
     float: right;
 }
@@ -592,12 +592,12 @@ p.article-info-text > .postMeta br {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 250px;
+    width: 270px;
 }
 
 .sidebar-title-msg:hover {
     cursor: pointer;
-    width: 250px;
+    width: 270px;
     white-space: unset;
     overflow: auto;
     text-overflow: unset;
