@@ -592,12 +592,12 @@ p.article-info-text > .postMeta br {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 195px;
+    width: 250px;
 }
 
 .sidebar-title-msg:hover {
     cursor: pointer;
-    width: 195px;
+    width: 250px;
     white-space: unset;
     overflow: auto;
     text-overflow: unset;
