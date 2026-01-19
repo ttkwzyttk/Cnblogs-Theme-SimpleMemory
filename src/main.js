@@ -12,42 +12,36 @@ import event from "./components/event/event";
 
 $(document).ready(function(){
 
-    // 初始化
+    // 初始化全局变量对象
     let _ = {};
     _.__config  = config(); // 配置信息
-    _.__status  = status(); // 页面状态信息
+    _.__status  = status(); // 获取页面状态信息
     _.__tools   = tools();  // 公共处理工具
     _.__timeIds = {};       // 定时器
     _.__event   = {};       // 事件
 
+    // 如果默认配置信息里没有设置用户名，就用url获取的用户信息
     if (_.__config.info.name === '') _.__config.info.name = _.__status.user;
 
     // 开启渲染
     import(/* webpackChunkName: "page-[request]" */ `./pages/${_.__status.pageType}`).then(module => {
         const page = module.default;
-
-        /**
-         * 前置公共处理
-         */
+ 
+        // 前置公共处理
         import(/* webpackChunkName: "comBefore" */ './components/common/comBefore').then(module => {
             const comBefore = module.default;
+            // 调用前置页面处理
             comBefore(_);
 
-            /**
-             * 页面逻辑处理
-             */
+            // 页面逻辑处理
             page(_);
 
-            /**
-             * 后置公共处理
-             */
+            // 后置公共处理
             import(/* webpackChunkName: "comAfter" */ './components/common/comAfter').then(module => {
                 const comAfter = module.default;
                 comAfter(_);
 
-                /**
-                 * 辅助处理
-                 */
+                // 辅助处理
                 (() => {
                     _.__tools.setDomHomePosition(); // 文章主体位置修正
                     event(_).handle.scroll(); // 触发滚动处理
@@ -55,5 +49,6 @@ $(document).ready(function(){
                 })();
             });
         });
+
     });
 })

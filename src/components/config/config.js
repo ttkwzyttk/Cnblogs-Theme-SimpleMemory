@@ -10,7 +10,7 @@ import commentBgDark from "../../images/comment_bg_dark.png";
 import commentBgDay from "../../images/comment_bg_day.png";
 
 export default function main() {
-
+    // 设置评论区的背景图片，包括白天和夜间模式
     defaultConfig.articleComment.background.options.day = `rgba(0, 0, 0, 0) url("${commentBgDay}") no-repeat scroll 100% 31% / 35% padding-box border-box`;
     defaultConfig.articleComment.background.options.night = `rgba(0, 0, 0, 0) url("${commentBgDark}") no-repeat scroll 100% 31% / 35% padding-box border-box`;
 

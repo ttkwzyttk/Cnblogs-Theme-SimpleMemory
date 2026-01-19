@@ -23,7 +23,12 @@ function randomString(len) {
     return pwd;
 }
 
+/**
+ * 模块导出配置代码
+ */
+
 module.exports = {
+    // 配置编译环境，与输出文件相关内容
     mode: 'production',
     entry: './src/main.js',
     output: {
@@ -33,7 +38,9 @@ module.exports = {
         clean: true,
         charset: true
     },
+    //配置使用到的插件
     plugins: [
+        // 文件管理插件，复制simpleMemory.js并添加随机字符串防止缓存
         new fileManagerPlugin({
             events: {
                 onEnd: {
@@ -43,6 +50,7 @@ module.exports = {
                 }
             }
         }),
+        // CSS提取插件，将CSS单独打包成文件
         new miniCssExtractPlugin({
             filename: 'style/[name].[contenthash:8].css',
             chunkFilename:'style/[name].[contenthash:8].css',
@@ -51,9 +59,11 @@ module.exports = {
     ],
     // devtool: 'inline-source-map',
     optimization: {
+        // 使用minimizer列表中的插件去压缩js/css
         minimize: true,
         innerGraph: false,
         mangleWasmImports: true,
+        // 拆分chunk配置
         splitChunks: {
             chunks: 'async',
             minSize: 20000,
@@ -63,6 +73,7 @@ module.exports = {
             maxInitialRequests: 30,
             enforceSizeThreshold: 50000
         },
+        // 压缩插件
         minimizer: [
             new terserPlugin({
                   parallel: true,

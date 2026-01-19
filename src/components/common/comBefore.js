@@ -16,10 +16,8 @@ import '../../vendor/rotate/jquery.rotate.min';
 export default function main(_) {
     // 默认字体图标库
     import(/* webpackChunkName: "fonticon" */ '../../style/fonticon.css');
-
     // 谷歌字体
     import(/* webpackChunkName: "google-fonts" */ '../../style/google-fonts.css');
-
     /**
      * 国家公祭日和自定义缅怀的日期
      */

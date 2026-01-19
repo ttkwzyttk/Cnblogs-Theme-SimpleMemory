@@ -9,24 +9,26 @@
 export default function main() {
     let status = {};
 
-    // 提取url信息
+    // 提取url信息，如果有hash部分，就去掉hash部分
     status.url = window.location.href.split('#')[0];
+    // 将url通过/分割成数组
     const urlArr = status.url.split("/");
-
+    // 如果url最后有/，就去掉最后的空字符串
     if (urlArr[urlArr.length -1] === '') {
         urlArr.splice(urlArr.length -1, 1);
     }
-
+    // 获取用户信息
     status.user      = urlArr[3]; // 当前用户
     status.articleId = ''; // 文章ID
 
-    // 主页链接
+    // 构建主页链接
     status.homeUrl = [urlArr[0], urlArr[1], urlArr[2], urlArr[3]].join("/");
 
+    // 安全取出第5和6段参数，如果不存在就赋值为空字符串
     const par4 = typeof urlArr[4] !== 'undefined' ? urlArr[4] : '';
     const par5 = typeof urlArr[5] !== 'undefined' ? urlArr[5] : '';
 
-    // 判断当前页面类型
+    // 判断当前页面类型，如果url为4段，且页面中没有id为topics的元素，则为主页
     if (urlArr.length === 4
         && !$('#topics').length
     ) {
@@ -47,7 +49,6 @@ export default function main() {
         } else {
             status.pageType = 'article'; // 当前页面为文章页
         }
-
         // 提取文章id
         let endVal = (urlArr[urlArr.length - 1]).split(".");
         status.articleId = endVal[0];
