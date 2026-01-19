@@ -22,7 +22,7 @@ export default function main(_) {
      * 国家公祭日和自定义缅怀的日期
      */
     const today = _.__tools.getFormattedDate();
-    if (today === '12-13' || _.__config.memorialDays.includes(today)) $('html').css('filter', 'grayscale(100%)');
+    if (today === '1-19' || _.__config.memorialDays.includes(today)) $('html').css('filter', 'grayscale(100%)');
 
     let loadingObj = loading(_);
 
