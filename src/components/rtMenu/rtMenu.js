@@ -230,6 +230,9 @@ export default function main(_) {
                     articleDirectory.is(':hidden') ? articleDirectory.fadeIn(300) : articleDirectory.fadeOut(300);
                 }
             });
+            
+            // 默认显示目录
+            $('#articleDirectory').fadeIn(300);
         }
     })();
 
