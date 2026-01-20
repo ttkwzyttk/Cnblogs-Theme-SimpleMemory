@@ -19,6 +19,7 @@ export default function main(_) {
         let configTitle = _.__config.banner.home.title,
             hitokoto = $('#hitokoto');
 
+        // 如果用户自定义了标题内容，则使用用户自定义的内容，直接通过return退出
         if ($.isArray(configTitle) && configTitle.length > 0) {
 
             let listIndex = _.__tools.randomNum(0, configTitle.length - 1);
