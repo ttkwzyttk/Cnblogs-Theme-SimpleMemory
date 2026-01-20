@@ -231,8 +231,13 @@ export default function main(_) {
                 }
             });
             
-            // 默认显示目录
-            $('#articleDirectory').fadeIn(300);
+            // 默认显示目录（延迟一下）
+            setTimeout(() => {
+                let articleDirectory = $('#articleDirectory');
+                if (articleDirectory.length) {
+                    articleDirectory.fadeIn(300);
+                }
+            }, 200);
         }
     })();
 
