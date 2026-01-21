@@ -78,6 +78,12 @@ export default function main(_) {
 
         postBody.append(dirHtml);
 
+        // 默认展开文章目录
+        const Directory = $('#articleDirectory');
+        if (Directory.length) {
+            Directory.fadeIn(300)
+        }
+
         // // 锚点监听
         // body.attr('data-bs-spy', 'scroll');
         // body.attr('data-bs-target', '#articleDirectory');
